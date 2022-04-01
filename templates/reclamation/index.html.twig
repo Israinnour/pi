@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reclamation index{% endblock %}
+
+{% block body %}
+    <script src="{{ asset('back/js/jquery.min.js') }}"></script>
+    <input type="text" id="search" class="form-control form-control-no-border mr-sm-2" placeholder="chercher reclamation">
+    <div class="clients" >
+        <div class="client-head"  >
+            <h3>Reclamation</h3>
+            <span>what customer say about us and why love our services!</span>
+        </div>
+
+        <div class="client-grids" id="tableac">
+
+            <ul class="bxslider">
+                <div>
+
+                {% for reclamation in reclamations %}
+
+                    <li>
+                        <a href="#">{{ reclamation.sujet }}</a>
+                        <p>{{ reclamation.description }}</p>
+                    {% if reclamation.reponse is not null %}<p>reponse: {{ reclamation.reponse.reponse }}  date reponse : {{ reclamation.reponse.date ? reclamation.date|date('Y-m-d H:i:s') : '' }}<p>{% else %} <h4> pas de reponse </h4> {% endif %}
+                    <label> {{ reclamation.date ? reclamation.date|date('Y-m-d H:i:s') : '' }}</label>
+                        <div>
+                            <a href="{{ path('reclamation_show', {'id': reclamation.id}) }}"><button class="btn">show</button></a>
+                            <a href="{{ path('reclamation_edit', {'id': reclamation.id}) }}"><button class="btn ">edit</button></a>
+                        </div>
+
+                    </li>
+
+                {% endfor %}
+                    <div class="nk-pagination nk-pagination-center">
+                        {{ knp_pagination_render(reclamations) }}
+
+                    </div>
+
+                </div>
+
+            </ul>
+
+
+        </div>
+
+    </div>
+
+
+    <a href="{{ path('reclamation_new') }}"><button class="btn ">Create new</button></a>
+{% endblock %}
+

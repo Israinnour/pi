@@ -1,0 +1,12 @@
+{% extends 'back.html.twig' %}
+
+{% block body %}
+
+
+<h1>L'ajout d'un offre</h1>
+{{form_start(fof)}}
+{{form_label(fof.pourcentage,'Pourcentage de offre')}}
+{{form_widget(fof.pourcentage)}}
+{{form_end(fof)}}
+
+{% endblock %}

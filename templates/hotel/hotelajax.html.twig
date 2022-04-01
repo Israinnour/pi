@@ -1,0 +1,34 @@
+{% for hotel in hotels %}
+    <tr>
+        <td>{{ hotel.id }}</td>
+        <td>{{ hotel.nom }}</td>
+        <td>{{ hotel.description }}</td>
+        <td>{{ hotel.prix }}</td>
+        <td><img src="{{ asset('uploads/'~hotel.image) }}" WIDTH=150 HEIGHT=120 alt=""></td>
+        <td>
+            {% for reservation in hotel.reservations %}
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>DateReservation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ reservation.id }}</td>
+                        <td>{{ reservation.date ? reservation.date|date('Y-m-d H:i:s') : '' }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            {% endfor %}
+
+
+        </td>
+        <td>
+            <a href="{{ path('app_hotel_show', {'id': hotel.id}) }}">show</a>
+            <a href="{{ path('app_hotel_edit', {'id': hotel.id}) }}">edit</a>
+        </td>
+    </tr>
+
+{% endfor %}

@@ -1,238 +1,6 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <title>{% block title %}Vol{% endblock %}</title>
+{% extends 'base.html.twig' %}
 
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    </script>
-    <script src="js/jquery.min.js"></script>
-
-    <!---script---->
-
-    <link rel="stylesheet" href="css/jquery.bxslider.css" type="text/css" />
-    <script src="js/jquery.bxslider.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.bxslider').bxSlider({
-                auto: true,
-                autoControls: true,
-                minSlides: 4,
-                maxSlides: 4,
-                slideWidth:450,
-                slideMargin: 10
-            });
-        });
-    </script>
-
-    <!---//script---->
-    <!---smoth-scrlling---->
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('a[href^="#"]').on('click',function (e) {
-                e.preventDefault();
-                var target = this.hash,
-                    $target = $(target);
-                $('html, body').stop().animate({
-                    'scrollTop': $target.offset().top
-                }, 1000, 'swing', function () {
-                    window.location.hash = target;
-                });
-            });
-        });
-    </script>
-
-    <!---//smoth-scrlling---->
-    <!----start-top-nav-script---->
-
-    <script type="text/javascript" src="js/flexy-menu.js"></script>
-    <script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
-
-    <!----//End-top-nav-script---->
-    <!---webfonts---->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <!---webfonts---->
-    <!--start slider -->
-
-    <link rel="stylesheet" href="css/fwslider.css" media="all">
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/css3-mediaqueries.js"></script>
-    <script src="js/fwslider.js"></script>
-
-    <!--end slider -->
-    <!---calender-style---->
-
-    <link rel="stylesheet" href="css/jquery-ui.css" />
-
-    <!---//calender-style---->
-</head>
-<body>
-
-<!----start-wrap---->
-<!----start-top-header----->
-
-<div class="top-header" id="header">
-    <div class="wrap">
-        <div class="top-header-left">
-            <ul>
-                <li><a href="#"><span> </span> Connection de l'agent </a></li>
-                <li><p><span> </span> Vous n'êtes pas un membre ? </p>&nbsp;<a class="reg" href="#"> Inscrire </a></li>
-                <li><p class="contact-info"> Appelez-nous maintenant :99999999</p></li>
-                <div class="clear"> </div>
-            </ul>
-        </div>
-        <div class="top-header-right">
-            <ul>
-                <li><a class="face" href="#"><span> </span></a></li>
-                <li><a class="twit" href="#"><span> </span></a></li>
-                <li><a class="thum" href="#"><span> </span></a></li>
-                <li><a class="pin" href="#"><span> </span></a></li>
-                <div class="clear"> </div>
-            </ul>
-        </div>
-        <div class="clear"> </div>
-    </div>
-</div>
-
-<!----//End-top-header----->
-<!---start-header---->
-
-<div class="header">
-    <div class="wrap">
-        <!--- start-logo---->
-        <div class="logo">
-            <a href="index.html"><img src="images/273652127_6898736670201024_8044367319215187868_n.png/" title="E-Reservation" /></a>
-        </div>
-        <!--- //End-logo---->
-        <!--- start-top-nav---->
-        <div class="top-nav">
-            <ul class="flexy-menu thick orange">
-                <li><a href="{{ path('acceuil') }}">Acceuil</a></li>
-                <li class="active"><a href="{{ path ('vol') }}">Vols</a>
-                    <ul>
-                        <li><a href="destinations.html">Dropdown item</a></li>
-                        <li><a href="destinations.html">Dropdown item</a></li>
-                        <li><a href="destinations.html">Dropdown item</a>
-                            <ul>
-                                <li><a href="destinations.html">Dropdown item</a></li>
-                                <li><a href="destinations.html">Dropdown item</a>
-                                    <ul>
-                                        <li><a href="destinations.html">Dropdown item</a></li>
-                                        <li><a href="destinations.html">Dropdown item</a></li>
-                                        <li><a href="destinations.html">Dropdown item</a></li>
-                                        <li><a href="destinations.html">Dropdown item</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Dropdown item</a></li>
-                                <li><a href="#">Dropdown item</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Dropdown item</a></li>
-                        <li><a href="#">Dropdown item</a></li>
-                    </ul>
-                </li>
-                <li><a href="{{ path ('hotel') }}">Hôtels</a></li>
-                <li><a href="{{ path ('offre') }}">Offres</a></li>
-                <li><a href="{{ path ('reclamation') }}">Réclamations</a></li>
-                <li><a href="{{ path ('feedback') }}">Feed-Back</a></li>
-                <li><a href="{{ path ('forum') }}">Blog</a></li>
-            </ul>
-            <div class="search-box">
-                <div id="sb-search" class="sb-search">
-                    <form>
-                        <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
-                        <input class="sb-search-submit" type="submit" value="">
-                        <span class="sb-icon-search"> </span>
-                    </form>
-                </div>
-            </div>
-            <!----search-scripts---->
-
-            <script src="js/modernizr.custom.js"></script>
-            <script src="js/classie.js"></script>
-            <script src="js/uisearch.js"></script>
-            <script>
-                new UISearch( document.getElementById( 'sb-search' ) );
-            </script>
-
-            <!----//search-scripts---->
-        </div>
-
-        <!--- //End-top-nav---->
-        <div class="clear"> </div>
-    </div>
-
-    <!---//End-header---->
-
-</div>
-<!----start-images-slider---->
-
-<div class="images-slider">
-    <!-- start slider -->
-    <div id="fwslider">
-        <div class="slider_container">
-            <div class="slide">
-                <!-- Slide image -->
-                <img src="images/slider-bg.jpg" alt=""/>
-                <!-- /Slide image -->
-                <!-- Texts container -->
-                <div class="slide_content">
-                    <div class="slide_content_wrap">
-                        <!-- Text title -->
-                        <h4 class="title">Voyager, c'est vivre </h4>
-                        <!-- /Text title -->
-                        <!-- Text description -->
-                        <p class="description">Vous n’avez pas besoin de magie pour disparaître. Tout ce dont vous avez besoin est une destination.
-
-                        </p>
-                        <!-- /Text description -->
-                        <div class="slide-btns description">
-                            <ul>
-                                <li><a class="mapbtn" href="#">Afficher sur le Map </a></li>
-                                <li><a class="minfo" href="#">Plus d'info </a></li>
-                                <div class="clear"> </div>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- /Texts container -->
-            </div>
-            <!-- /Duplicate to create more slides -->
-            <div class="slide">
-                <img src="images/slider-bg.jpg" alt=""/>
-                <div class="slide_content">
-                    <div class="slide_content_wrap">
-                        <!-- Text title -->
-                        <h4 class="title">Voyager, c'est vivre</h4>
-                        <!-- /Text title -->
-                        <!-- Text description -->
-                        <p class="description">Vous n’avez pas besoin de magie pour disparaître. Tout ce dont vous avez besoin est une destination.</p>
-                        <!-- /Text description -->
-                        <div class="slide-btns description">
-                            <ul>
-                                <li><a class="mapbtn" href="#">Afficher sur le map </a></li>
-                                <li><a class="minfo" href="#">Plus d'info </a></li>
-                                <div class="clear"> </div>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--/slide -->
-        </div>
-        <div class="timers"> </div>
-        <div class="slidePrev"><span> </span></div>
-        <div class="slideNext"><span> </span></div>
-    </div>
-
-    <!--/slider -->
-
-</div>
-<!----start-find-place---->
-
+{% block body %}   
 <!---start-destinatiuons---->
 <div class="destinations">
     <div class="destination-head">
@@ -244,10 +12,10 @@
             <div class="wrap">
                 <div class="p-h">
                     <span>TROUVEZ VOTRE</span>
-                    <label>DESTINATIONS</label>
+                    <label>DESTINATION</label>
                 </div>
                 <!---strat-date-piker---->
-                <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+                <script src="http://code.jquery.com/ui/1.9.2/front/jquery-ui.js"></script>
                 <script>
                     $(function() {
                         $( "#datepicker" ).datepicker();
@@ -258,12 +26,6 @@
                     <form>
                         <span> Où</span>
                         <input class="dest" type="text" value="Destination" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Distination';}">
-                        <span> DateDébut</span>
-                        <input class="date" id="datepicker" type="text" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
-                        <span> DateFin</span>
-                        <input class="date" id="datepicker" type="text" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
-                        <span> Nombre de Personne</span>
-                        <input class="clients" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Distination';}">
                         <input type="submit" value="Rechercher" />
                     </form>
                 </div>
@@ -277,300 +39,205 @@
             <div class="destination-places-head">
                 <h3>Cheapest Destinations</h3>
             </div>
-            <div class="destination-places-grids">
-                <div class="destination-places-grid" onclick="location.href='#';">
-                    <div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
-                        <img src="images/d7.jpg" title="place-name" />
-                        <a href="#" class="popup"> </a>
-                        <a href="#" class="popup2"> </a>
+            <div class="criuse-grids">
+                <div class="criuse-grid">
+                    <div class="criuse-grid-head">
+                        <div class="criuse-img">
+                            <div class="criuse-pic">
+                                <img src="front/images/Eiffel Tower_GettyImages-1005348968.jpg"  />
+                            </div>
+                            <div class="criuse-pic-info">
+                                <div class="criuse-pic-info-top">
+                                    <div class="criuse-pic-info-top-weather">
+                                        <p>10<label>o</label><i>c</i><span> </span></p>
+                                    </div>
+                                    <div class="criuse-pic-info-top-place-name">
+                                        <h2><label>France</label><span>PARIS</span></h2>
+                                    </div>
+                                </div>
+                                <div class="criuse-pic-info-price">
+                                    <p><span>Starting Form</span> <h4>1550 Dt</h4></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="criuse-info">
+                            <div class="criuse-info-left">
+                                <ul>
+                                    <li><a class="c-hotel" href="#"><span> </span>Nights VIp/Luurious hotel </a></li>
+                                    <li><a class="c-air" href="#"><span> </span> Air Ticket</a></li>
+                                    <li><a class="c-air" href="{{ path('maps') }}"><span> </span> Maps</a></li>
+                                    <div class="clear"> </div>
+                                </ul>
+                            </div>
+                            <div class="criuse-info-right">
+                                <ul>
+                                    <li><a class="c-face" href="#"><span> </span> </a></li>
+                                    <li><a class="c-twit" href="#"><span> </span> </a></li>
+                                    <li><a class="c-tub" href="#"><span> </span> </a></li>
+                                    <li><a class="c-pin" href="#"><span> </span> </a></li>
+                                </ul>
+                            </div>
+                            <div class="clear"> </div>
+                        </div>
                     </div>
-                    <div class="dest-place-opt">
-                        <ul class="dest-place-opt-fea">
-                            <li><a class="hot" href="#"><span> </span> Hotel</a></li>
-                            <li><a class="plain" href="#"><span> </span> Air ticket</a></li>
-                            <li><a class="Breakfast" href="#"><span> </span> Break Fast</a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                        <ul class="dest-place-opt-cast">
-                            <li><a class="d-place" href="#">Venice</a></li>
-                            <li><a class="d-price" href="#">Starting Form 250$</a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                    </div>
-                </div>
-                <div class="destination-places-grid" onclick="location.href='#';">
-                    <div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
-                        <img src="images/d6.jpg" title="place-name" />
-                        <a href="#" class="popup"> </a>
-                        <a href="#" class="popup2"> </a>
-                    </div>
-                    <div class="dest-place-opt">
-                        <ul class="dest-place-opt-fea">
-                            <li><a class="hot" href="#"><span> </span> Hotel</a></li>
-                            <li><a class="plain" href="#"><span> </span> Air ticket</a></li>
-                            <li><a class="Breakfast" href="#"><span> </span> Break Fast</a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                        <ul class="dest-place-opt-cast">
-                            <li><a class="d-place" href="#">Venice</a></li>
-                            <li><a class="d-price" href="#">Starting Form 250$</a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                    </div>
-                </div>
-                <div class="destination-places-grid last-d-grid" onclick="location.href='#';">
-                    <div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
-                        <img src="images/d2.jpg" title="place-name" />
-                        <a href="#" class="popup"> </a>
-                        <a href="#" class="popup2"> </a>
-                    </div>
-                    <div class="dest-place-opt">
-                        <ul class="dest-place-opt-fea">
-                            <li><a class="hot" href="#"><span> </span> Hotel</a></li>
-                            <li><a class="plain" href="#"><span> </span> Air ticket</a></li>
-                            <li><a class="Breakfast" href="#"><span> </span> Break Fast</a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                        <ul class="dest-place-opt-cast">
-                            <li><a class="d-place" href="#">Venice</a></li>
-                            <li><a class="d-price" href="#">Starting Form 250$</a></li>
-                            <div class="clear"> </div>
-                        </ul>
+                    <div class="criuse-grid-info">
+                        <a class="btn" href="{{ path('magicmakers') }}">Réserver</a>
                     </div>
                 </div>
-                <div class="destination-places-grid" onclick="location.href='#';">
-                    <div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
-                        <img src="images/d3.jpg" title="place-name" />
-                        <a href="#" class="popup"> </a>
-                        <a href="#" class="popup2"> </a>
+                <div class="criuse-grid">
+                    <div class="criuse-grid-head">
+                        <div class="criuse-img">
+                            <div class="criuse-pic">
+                                <img src="front/images/Istanbul-Travel-Guide-8-scaled-1.jpg" title="criuse-name" />
+                            </div>
+                            <div class="criuse-pic-info">
+                                <div class="criuse-pic-info-top">
+                                    <div class="criuse-pic-info-top-weather">
+                                        <p>30<label>o</label><i>c</i><span> </span></p>
+                                    </div>
+                                    <div class="criuse-pic-info-top-place-name">
+                                        <h2><label>Turkey</label><span>ISTANBUL</span></h2>
+                                    </div>
+                                </div>
+                                <div class="criuse-pic-info-price">
+                                    <p><span>Starting Form</span> <h4>850 Dt</h4></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="criuse-info">
+                            <div class="criuse-info-left">
+                                <ul>
+                                    <li><a class="c-hotel" href="#"><span> </span> Nights VIp/Luurious hotel </a></li>
+                                    <li><a class="c-air" href="#"><span> </span> Air Ticket</a></li>
+                                    <li><a class="c-air" href="{{ path('mapsis') }}"><span> </span> Maps</a></li>
+                                    <div class="clear"> </div>
+                                </ul>
+                            </div>
+                            <div class="criuse-info-right">
+                                <ul>
+                                    <li><a class="c-face" href="#"><span> </span> </a></li>
+                                    <li><a class="c-twit" href="#"><span> </span> </a></li>
+                                    <li><a class="c-tub" href="#"><span> </span> </a></li>
+                                    <li><a class="c-pin" href="#"><span> </span> </a></li>
+                                </ul>
+                            </div>
+                            <div class="clear"> </div>
+                        </div>
                     </div>
-                    <div class="dest-place-opt">
-                        <ul class="dest-place-opt-fea">
-                            <li><a class="hot" href="#"><span> </span> Hotel</a></li>
-                            <li><a class="plain" href="#"><span> </span> Air ticket</a></li>
-                            <li><a class="Breakfast" href="#"><span> </span> Break Fast</a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                        <ul class="dest-place-opt-cast">
-                            <li><a class="d-place" href="#">Venice</a></li>
-                            <li><a class="d-price" href="#">Starting Form 250$</a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                    </div>
-                </div>
-                <div class="destination-places-grid" onclick="location.href='#';">
-                    <div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
-                        <img src="images/d1.jpg" title="place-name" />
-                        <a href="#" class="popup"> </a>
-                        <a href="#" class="popup2"> </a>
-                    </div>
-                    <div class="dest-place-opt">
-                        <ul class="dest-place-opt-fea">
-                            <li><a class="hot" href="#"><span> </span> Hotel</a></li>
-                            <li><a class="plain" href="#"><span> </span> Air ticket</a></li>
-                            <li><a class="Breakfast" href="#"><span> </span> Break Fast</a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                        <ul class="dest-place-opt-cast">
-                            <li><a class="d-place" href="#">Venice</a></li>
-                            <li><a class="d-price" href="#">Starting Form 250$</a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                    </div>
-                </div>
-                <div class="destination-places-grid last-d-grid" onclick="location.href='#';">
-                    <div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
-                        <img src="images/d5.jpg" title="place-name" />
-                        <a href="#" class="popup"> </a>
-                        <a href="#" class="popup2"> </a>
-                    </div>
-                    <div class="dest-place-opt">
-                        <ul class="dest-place-opt-fea">
-                            <li><a class="hot" href="#"><span> </span> Hotel</a></li>
-                            <li><a class="plain" href="#"><span> </span> Air ticket</a></li>
-                            <li><a class="Breakfast" href="#"><span> </span> Break Fast</a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                        <ul class="dest-place-opt-cast">
-                            <li><a class="d-place" href="#">Venice</a></li>
-                            <li><a class="d-price" href="#">Starting Form 250$</a></li>
-                            <div class="clear"> </div>
-                        </ul>
+                    <div class="criuse-grid-info">
+                        <a class="btn" href="{{ path('magicmakers') }}">Réserver</a>
                     </div>
                 </div>
-                <div class="destination-places-grid" onclick="location.href='#';">
-                    <div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
-                        <img src="images/d6.jpg" title="place-name" />
-                        <a href="#" class="popup"> </a>
-                        <a href="#" class="popup2"> </a>
+                <div class="criuse-grid">
+                    <div class="criuse-grid-head">
+                        <div class="criuse-img">
+                            <div class="criuse-pic">
+                                <img src="front/images/Londres-Royaume-Uni.jpg" title="criuse-name" />
+                            </div>
+                            <div class="criuse-pic-info">
+                                <div class="criuse-pic-info-top">
+                                    <div class="criuse-pic-info-top-weather">
+                                        <p>25<label>o</label><i>c</i><span> </span></p>
+                                    </div>
+                                    <div class="criuse-pic-info-top-place-name">
+                                        <h2><label>England</label><span>LONDON</span></h2>
+                                    </div>
+                                </div>
+                                <div class="criuse-pic-info-price">
+                                    <p><span>Starting Form</span> <h4>1970 Dt</h4></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="criuse-info">
+                            <div class="criuse-info-left">
+                                <ul>
+                                    <li><a class="c-hotel" href="#"><span> </span>Nights VIp/Luurious hotel </a></li>
+                                    <li><a class="c-air" href="#"><span> </span> Air Ticket</a></li>
+                                    <li><a class="c-air" href="{{ path('maps') }}"><span> </span> Maps</a></li>
+                                    <div class="clear"> </div>
+                                </ul>
+                            </div>
+                            <div class="criuse-info-right">
+                                <ul>
+                                    <li><a class="c-face" href="#"><span> </span> </a></li>
+                                    <li><a class="c-twit" href="#"><span> </span> </a></li>
+                                    <li><a class="c-tub" href="#"><span> </span> </a></li>
+                                    <li><a class="c-pin" href="#"><span> </span> </a></li>
+                                </ul>
+                            </div>
+                            <div class="clear"> </div>
+                        </div>
                     </div>
-                    <div class="dest-place-opt">
-                        <ul class="dest-place-opt-fea">
-                            <li><a class="hot" href="#"><span> </span> Hotel</a></li>
-                            <li><a class="plain" href="#"><span> </span> Air ticket</a></li>
-                            <li><a class="Breakfast" href="#"><span> </span> Break Fast</a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                        <ul class="dest-place-opt-cast">
-                            <li><a class="d-place" href="#">Venice</a></li>
-                            <li><a class="d-price" href="#">Starting Form 250$</a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                    </div>
-                </div>
-                <div class="destination-places-grid" onclick="location.href='#';">
-                    <div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
-                        <img src="images/d5.jpg" title="place-name" />
-                        <a href="#" class="popup"> </a>
-                        <a href="#" class="popup2"> </a>
-                    </div>
-                    <div class="dest-place-opt">
-                        <ul class="dest-place-opt-fea">
-                            <li><a class="hot" href="#"><span> </span> Hotel</a></li>
-                            <li><a class="plain" href="#"><span> </span> Air ticket</a></li>
-                            <li><a class="Breakfast" href="#"><span> </span> Break Fast</a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                        <ul class="dest-place-opt-cast">
-                            <li><a class="d-place" href="#">Venice</a></li>
-                            <li><a class="d-price" href="#">Starting Form 250$</a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                    </div>
-                </div>
-                <div class="destination-places-grid last-d-grid" onclick="location.href='#';">
-                    <div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
-                        <img src="images/d1.jpg" title="place-name" />
-                        <a href="#" class="popup"> </a>
-                        <a href="#" class="popup2"> </a>
-                    </div>
-                    <div class="dest-place-opt">
-                        <ul class="dest-place-opt-fea">
-                            <li><a class="hot" href="#"><span> </span> Hotel</a></li>
-                            <li><a class="plain" href="#"><span> </span> Air ticket</a></li>
-                            <li><a class="Breakfast" href="#"><span> </span> Break Fast</a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                        <ul class="dest-place-opt-cast">
-                            <li><a class="d-place" href="#">Venice</a></li>
-                            <li><a class="d-price" href="#">Starting Form 250$</a></li>
-                            <div class="clear"> </div>
-                        </ul>
+                    <div class="criuse-grid-info">
+                        <a class="btn" href="{{ path('magicmakers') }}">Réserver</a>
                     </div>
                 </div>
-                <div class="clear"> </div>
+            </div>
+            <div class="criuse-grid">
+                <div class="criuse-grid-head">
+                    <div class="criuse-img">
+                        <div class="criuse-pic">
+                            <img src="front/images/comment-obtenir-evisa-dubai-visa-electronique-action-visas.jpg" title="criuse-name" />
+                        </div>
+                        <div class="criuse-pic-info">
+                            <div class="criuse-pic-info-top">
+                                <div class="criuse-pic-info-top-weather">
+                                    <p>35<label>o</label><i>c</i><span> </span></p>
+                                </div>
+                                <div class="criuse-pic-info-top-place-name">
+                                    <h2><label>Emarat</label><span>DUBAI</span></h2>
+                                </div>
+                            </div>
+                            <div class="criuse-pic-info-price">
+                                <p><span>Starting Form</span> <h4>1750 Dt</h4></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="criuse-info">
+                        <div class="criuse-info-left">
+                            <ul>
+                                <li><a class="c-hotel" href="#"><span> </span>Nights VIp/Luurious hotel </a></li>
+                                <li><a class="c-air" href="#"><span> </span> Air Ticket</a></li>
+                                <li><a class="c-air" href="{{ path('maps') }}"><span> </span> Maps</a></li>
+                                <div class="clear"> </div>
+                            </ul>
+                        </div>
+                        <div class="criuse-info-right">
+                            <ul>
+                                <li><a class="c-face" href="#"><span> </span> </a></li>
+                                <li><a class="c-twit" href="#"><span> </span> </a></li>
+                                <li><a class="c-tub" href="#"><span> </span> </a></li>
+                                <li><a class="c-pin" href="#"><span> </span> </a></li>
+                            </ul>
+                        </div>
+                        <div class="clear"> </div>
+                    </div>
+                </div>
+                <div class="criuse-grid-info">
+                    <a class="btn" href="{{ path('magicmakers') }}">Réserver</a>
+                </div>
             </div>
         </div>
-    </div>
-    <!---start-destinations-pagenation---->
-    <div class="destination-pagenate">
-        <div class="wrap">
-            <ul>
-                <li><a class="d-next" href="#">LOAding More</a></li>
-                <div class="clear"> </div>
-            </ul>
-        </div>
-    </div>
-    <!---//End-destinations-pagenation---->
-    <!---loading-more-script--->
-    <!---//loading-more-script--->
-</div>
 
-<!----start-footer---->
-
-<div class="footer">
-    <div class="wrap">
-        <div class="footer-grids">
-            <div class="footer-grid Newsletter">
-                <h3>Lettre d’information </h3>
-                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore.</p>
-                <form>
-                    <input type="text" placeholder="Souscrit.." /> <input type="submit" value="GO" />
-                </form>
-            </div>
-            <div class="footer-grid Newsletter">
-                <h3>Dernières nouvelles
-                </h3>
-                <div class="news">
-                    <div class="news-pic">
-                        <img src="images/f01.jpg" title="news-pic1" />
-                    </div>
-                    <div class="news-info">
-                        <a href="#">Galerie postformat : plusieurs images</a>
-                        <span>December 12, 2012 - 9:11 pm</span>
-                    </div>
-                    <div class="clear"> </div>
-                </div>
-                <div class="news">
-                    <div class="news-pic">
-                        <img src="images/f01.jpg" title="news-pic1" />
-                    </div>
-                    <div class="news-info">
-                        <a href="#">Galerie postformat : plusieurs images</a>
-                        <span>December 12, 2012 - 9:11 pm</span>
-                    </div>
-                    <div class="clear"> </div>
-                </div>
-            </div>
-            <div class="footer-grid tags">
-                <h3>Tags</h3>
+        <!---//End-criuse-grids----->
+        <!---start-destinations-pagenation---->
+        <div class="destination-pagenate">
+            <div class="wrap">
                 <ul>
-                    <li><a href="#">Connection Agent</a></li>
-                    <li><a href="#">Connection Client</a></li>
-                    <li><a href="#">Vous n'êtes pas un membre?</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Nouveaux Horizons</a></li>
-                    <li><a href="#">Lanscape</a></li>
-                    <li><a href="#">Tags</a></li>
-                    <li><a href="#">Nice</a></li>
-                    <li><a href="#">Some</a></li>
-                    <li><a href="#">Portrait</a></li>
+                    <a href="{{ path ('vol') }}"> <button type="button" class="btn btn-round btn-danger"><h3> << </h3></button> </a>
+                    <a href="{{ path ('vol') }}"><button type="button" class="btn btn-round btn-warning"><h3>1</h3></button> </a>
+                    <a href="{{ path ('load') }}"> <button type="button" class="btn btn-round btn-danger"><h3>2</h3></button> </a>
+                    <a href="{{ path ('load') }}"> <button type="button" class="btn btn-round btn-danger"><h3> >> </h3></button> </a>
+
+
                     <div class="clear"> </div>
                 </ul>
             </div>
-            <div class="footer-grid address">
-                <h3>Addresse </h3>
-                <div class="address-info">
-                    <span>ESPRIT </span>
-                    <span>1, 2 rue André Ampère - 2083 - Pôle Technologique - El Ghazala.</span>
-                    <span><i>E-mail:</i><a href="mailto:moin@blindtextgenerator.de">Magic.Makers@gmail.com</a></span>
-                </div>
-                <div class="footer-social-icons">
-                    <ul>
-                        <li><a class="face1 simptip-position-bottom simptip-movable" data-tooltip="facebook" href="#"><span> </span></a></li>
-                        <li><a class="twit1 simptip-position-bottom simptip-movable" data-tooltip="twitter" href="#"><span> </span></a></li>
-                        <li><a class="tub1 simptip-position-bottom simptip-movable" data-tooltip="tumblr" href="#"><span> </span></a></li>
-                        <li><a class="pin1 simptip-position-bottom simptip-movable" data-tooltip="pinterest" href="#"><span> </span></a></li>
-                        <div class="clear"> </div>
-                    </ul>
-                </div>
-            </div>
-            <div class="clear"> </div>
         </div>
+        <!---//End-destinations-pagenation---->
+        <!---loading-more-script--->
+        <!---//loading-more-script--->
     </div>
-</div>
-<!----//End-footer---->
 
-<!---start-subfooter---->
-<div class="subfooter">
-    <div class="wrap">
-        <ul>
-            <li><a href="index.html">Acceuil</a><span>::</span></li>
-            <li><a href="destinations.html">Vols</a><span>::</span></li>
-            <li><a href="criuses.html">Hôtels</a><span>::</span></li>
-            <li><a href="destinations.html">Offres</a><span>::</span></li>
-            <li><a href="destinations.html">Réclamations</a><span>::</span></li>
-            <li><a href="destinations.html">Feed-Back</a><span>::</span></li>
-            <li><a href="blog.html">Blog</a><span>::</span></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <div class="clear"> </div>
-        </ul>
-        <a class="to-top" href="#header"><span> </span> </a>
-    </div>
-</div>
 
-<!---//End-subfooter---->
-<!----//End-wrap---->
-
-</body>
-</html>
+{% endblock body %}

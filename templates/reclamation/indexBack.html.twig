@@ -1,0 +1,88 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Reclamation index{% endblock %}
+
+{% block body %}
+
+
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <input type="text" id="search" class="form-control form-control-no-border mr-sm-2" placeholder="chercher reclamation">
+    <a style="color: CadetBlue; padding: 4px 2px 0;font-family: Verdana;" href="{{ path('TrierParNomDESCr') }}"> <img src="{{ asset('images/chevron-arrow.png') }}" style="max-width: 50%;"> ordre croissant selon le sujet</a>
+    <a style="color: CadetBlue;padding: 4px 2px 0;font-family: Verdana;" href="{{ path('TrierParNomASCr') }}">  <img src="{{ asset('images/chevron-arrow.png') }}" style="max-width: 50%;"> ordre decroissant selon le sujet</a>
+    <section id="main-content">
+        <section class="wrapper site-min-height" id="tableac">
+            <div class="row">
+                <div class="col-lg-12">
+                    {% for reclamation in reclamations %}
+                        <span>
+
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="custom-box">
+                            <div class="servicetitle">
+                                <h4>{{ reclamation.client}}</h4>
+                                <hr>
+                            </div>
+                            <div class="icn-main-container">
+                                <span class="icn-container">image user</span>
+                            </div>
+                            <h5>{{ reclamation.sujet }}</h5>
+                            <p>{{ reclamation.description }}</p>
+                            <ul class="pricing">
+                                <li>{{ reclamation.date ? reclamation.date|date('Y-m-d H:i:s') : '' }}</li>
+                                <li>  {% if reclamation.reponse is not null %} {{ reclamation.reponse.reponse }} {% else %} <h4> pas de reponse </h4>  {% endif %}  </li>
+                                <li>  </li>
+
+                            </ul>
+                            <a class="btn btn-theme" href="{{ path('reclamation_show_back', {'id': reclamation.id}) }}">show</a>
+                            {% if reclamation.reponse is not null %}   {% else %} <a class="btn btn-theme" href="{{ path('reponse_new2', {'id': reclamation.id}) }}">repondre  </a>  {% endif %}
+
+                        </div>
+                        <!-- end custombox -->
+                    </div>
+                        <script>
+                            $(document).ready(function(){
+                                $('#search').keyup(function(){
+                                    search_table($(this).val());
+                                });
+                                function search_table(value){
+                                    $('#tableac div span').each(function(){
+                                        var found = 'false';
+                                        $(this).each(function(){
+                                            if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                            {
+                                                found = 'true';
+                                            }
+                                        });
+                                        if(found == 'true')
+                                        {
+                                            $(this).show();
+
+                                        }
+                                        else
+                                        {
+                                            $(this).hide();
+
+                                        }
+                                    });
+                                }
+                            });
+                        </script>
+
+
+   </span>
+                    {% endfor %}
+
+                </div>
+                <!--  /col-lg-12 -->
+            </div>
+            <!--  /row -->
+        </section>
+        <!-- /wrapper -->
+    </section>
+    <a href="{{ path('reclamation_new') }}"><button class="btn ">Create new</button></a>
+{% endblock %}
+

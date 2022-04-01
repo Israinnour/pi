@@ -22,6 +22,7 @@ class Kernel extends BaseKernel
             if ($envs[$this->environment] ?? $envs['all'] ?? false) {
                 yield new $class();
             }
+
         }
     }
 

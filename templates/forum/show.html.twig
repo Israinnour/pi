@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Forum{% endblock %}
+
+{% block body %}
+   <div class="blog-grids">
+				<div class="wrap">
+					<div class="blog-grids-head">
+						<h3>Recent Posts</h3>
+					</div>
+       
+					<div class="blog-grids-box">
+						<div class="blog-grid">
+							<div class="blog-poast-head">
+								<div class="blog-art-pic">
+									<a class="post-pic" href="#"> <img src="{{ asset('picture/' ~ forum.image) }}" title="poast-name" /></a>
+								</div>
+								<div class="blog-poast-admin">
+									<a href="#"><img src="{{ asset('picture/' ~ forum.image) }}" title="admin" /></a>
+								</div>
+								
+								<div class="blog-poast-info">
+									<ul>
+										<li><a class="admin" href="#"><span> </span> Admin </a></li>
+										<li><a class="p-date" href="#"><span> </span>4-03-2014 </a></li>
+										<li><a class="p-blog" href="#"><span> </span>Blog,News</a></li>
+										<div class="clear"> </div>
+									</ul>
+								</div>
+								</div>
+								<div class="blog-info">
+									<h3><a href="{{ path('forum_show', {'id': forum.id}) }}">{{ forum.idcategorie.nom }}</a></h3>
+									<p>Views : {{forum.views }}</p>
+                                    <a  href="{{ path('likepost',{'id':forum.id}) }}">  <img   width="30" src="https://cdn-icons-png.flaticon.com/512/126/126473.png"></a>{{ forum.jaime }}
+
+                        <a  href="{{ path('dislikepost',{'id':forum.id}) }}"> <img   width="30" src="https://cdn-icons-png.flaticon.com/512/126/126504.png"></a>{{ forum.jaimepas }}
+									<a class="btn" href="{{ path('stat', {'id': forum.id}) }}">stat</a>
+								</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    <a href="{{ path('forum_list') }}">back to list</a>
+
+    <a href="{{ path('forum_edit', {'id': forum.id}) }}">edit</a>
+
+    {{ include('forum/_delete_form.html.twig') }}
+{% endblock %}
+{% block footer %}
+{% endblock %}

@@ -1,0 +1,447 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{% block title %}Actualite{% endblock %}</title>
+
+    <link href="front/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    </script>
+    <script src="front/js/jquery.min.js"></script>
+
+    <!---script---->
+
+    <link rel="stylesheet" href="front/css/jquery.bxslider.css" type="text/css" />
+    <script src="front/js/jquery.bxslider.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.bxslider').bxSlider({
+                auto: true,
+                autoControls: true,
+                minSlides: 4,
+                maxSlides: 4,
+                slideWidth:450,
+                slideMargin: 10
+            });
+        });
+    </script>
+
+    <!---//script---->
+    <!---smoth-scrlling---->
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('a[href^="#"]').on('click',function (e) {
+                e.preventDefault();
+                var target = this.hash,
+                    $target = $(target);
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 1000, 'swing', function () {
+                    window.location.hash = target;
+                });
+            });
+        });
+    </script>
+
+    <!---//smoth-scrlling---->
+    <!----start-top-nav-script---->
+
+    <script type="text/javascript" src="front/js/flexy-menu.js"></script>
+    <script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
+
+    <!----//End-top-nav-script---->
+    <!---webfonts---->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!---webfonts---->
+    <!--start slider -->
+
+    <link rel="stylesheet" href="front/css/fwslider.css" media="all">
+    <script src="front/js/jquery-ui.min.js"></script>
+    <script src="front/js/css3-mediaqueries.js"></script>
+    <script src="front/js/fwslider.js"></script>
+
+    <!--end slider -->
+    <!---calender-style---->
+
+    <link rel="stylesheet" href="front/css/jquery-ui.css" />
+
+    <!---//calender-style---->
+</head>
+<body>
+
+<!----start-wrap---->
+<!----start-top-header----->
+
+<div class="top-header" id="header">
+    <div class="wrap">
+        <div class="top-header-left">
+            <ul>
+                <li><a href="#"><span> </span> Connection de l'agent </a></li>
+                <li><p><span> </span> Vous n'êtes pas un membre ? </p>&nbsp;<a class="reg" href="#"> Inscrire </a></li>
+                <li><p class="contact-info"> Appelez-nous maintenant :99999999</p></li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <div class="top-header-right">
+            <ul>
+                <li><a class="face" href="#"><span> </span></a></li>
+                <li><a class="twit" href="#"><span> </span></a></li>
+                <li><a class="thum" href="#"><span> </span></a></li>
+                <li><a class="pin" href="#"><span> </span></a></li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <div class="clear"> </div>
+    </div>
+</div>
+
+<!----//End-top-header----->
+<!---start-header---->
+
+<div class="header">
+    <div class="wrap">
+        <!--- start-logo---->
+        <div class="logo">
+            <a href="index.html"><img src="front/images/273652127_6898736670201024_8044367319215187868_n.png/" title="E-Reservation" /></a>
+        </div>
+        <!--- //End-logo---->
+        <!--- start-top-nav---->
+        <div class="top-nav">
+            <ul class="flexy-menu thick orange">
+                <li><a href="index.html">Acceuil</a></li>
+                <li class="active"><a href="">Vols</a>
+                    <ul>
+                        <li><a href="destinations.html">Dropdown item</a></li>
+                        <li><a href="destinations.html">Dropdown item</a></li>
+                        <li><a href="destinations.html">Dropdown item</a>
+                            <ul>
+                                <li><a href="destinations.html">Dropdown item</a></li>
+                                <li><a href="destinations.html">Dropdown item</a>
+                                    <ul>
+                                        <li><a href="destinations.html">Dropdown item</a></li>
+                                        <li><a href="destinations.html">Dropdown item</a></li>
+                                        <li><a href="destinations.html">Dropdown item</a></li>
+                                        <li><a href="destinations.html">Dropdown item</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Dropdown item</a></li>
+                                <li><a href="#">Dropdown item</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Dropdown item</a></li>
+                        <li><a href="#">Dropdown item</a></li>
+                    </ul>
+                </li>
+              <li><a href="{{ path('app_hotel_index') }}">Hôtels</a></li>
+                <li><a href="{{ path('offre') }}">Offres</a></li>
+                <li><a href="{{ path('reclamation') }}">Réclamations</a></li>
+                <li><a href="{{ path('feedback') }}">Feed-Back</a></li>
+                <li><a href="{{ path('forum') }}">Blog</a></li>
+                  </ul>
+            <div class="search-box">
+                <div id="sb-search" class="sb-search">
+                    <form>
+                        <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+                        <input class="sb-search-submit" type="submit" value="">
+                        <span class="sb-icon-search"> </span>
+                    </form>
+                </div>
+            </div>
+            <!----search-scripts---->
+
+            <script src="front/js/modernizr.custom.js"></script>
+            <script src="front/js/classie.js"></script>
+            <script src="front/js/uisearch.js"></script>
+            <script>
+                new UISearch( document.getElementById( 'sb-search' ) );
+            </script>
+
+            <!----//search-scripts---->
+        </div>
+
+        <!--- //End-top-nav---->
+        <div class="clear"> </div>
+    </div>
+
+    <!---//End-header---->
+
+</div>
+<!----start-images-slider---->
+
+<div class="images-slider">
+    <!-- start slider -->
+    <div id="fwslider">
+        <div class="slider_container">
+            <div class="slide">
+                <!-- Slide image -->
+                <img src="front/images/slider-bg.jpg" alt=""/>
+                <!-- /Slide image -->
+                <!-- Texts container -->
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <!-- Text title -->
+                        <h4 class="title">Voyager, c'est vivre </h4>
+                        <!-- /Text title -->
+                        <!-- Text description -->
+                        <p class="description">Vous n’avez pas besoin de magie pour disparaître. Tout ce dont vous avez besoin est une destination.
+
+                        </p>
+                        <!-- /Text description -->
+                        <div class="slide-btns description">
+                            <ul>
+                                <li><a class="mapbtn" href="#">Afficher sur le Map </a></li>
+                                <li><a class="minfo" href="#">Plus d'info </a></li>
+                                <div class="clear"> </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Texts container -->
+            </div>
+            <!-- /Duplicate to create more slides -->
+            <div class="slide">
+                <img src="front/images/slider-bg.jpg" alt=""/>
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <!-- Text title -->
+                        <h4 class="title">Voyager, c'est vivre</h4>
+                        <!-- /Text title -->
+                        <!-- Text description -->
+                        <p class="description">Vous n’avez pas besoin de magie pour disparaître. Tout ce dont vous avez besoin est une destination.</p>
+                        <!-- /Text description -->
+                        <div class="slide-btns description">
+                            <ul>
+                                <li><a class="mapbtn" href="#">Afficher sur le map </a></li>
+                                <li><a class="minfo" href="#">Plus d'info </a></li>
+                                <div class="clear"> </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--/slide -->
+        </div>
+        <div class="timers"> </div>
+        <div class="slidePrev"><span> </span></div>
+        <div class="slideNext"><span> </span></div>
+    </div>
+
+    <!--/slider -->
+
+</div>
+<!----start-find-place---->
+
+<!---start-destinatiuons---->
+<div class="destinations">
+    <div class="destination-head">
+        <div class="wrap">
+            <h3>PUBLICATIONS</h3>
+        </div>
+
+    </div>
+</div>
+
+<div class="blog-grids">
+    <div class="wrap">
+        <div class="blog-grids-head">
+            <h3>Recent Posts</h3>
+        </div>
+        <div class="blog-grids-box">
+            <div class="blog-grid">
+                <div class="blog-poast-head">
+                    <div class="blog-art-pic">
+                        <a class="post-pic" href="#"> <img src="front/images/R (1).jpg" title="poast-name" /></a>
+                    </div>
+                    <div class="blog-poast-admin">
+                        <a href="#"><img src="front/images/admin-pic1.jpg" title="admin" /></a>
+                    </div>
+
+                    <div class="blog-poast-info">
+                        <ul>
+                            <li><a class="admin" href="#"><span> </span> lynda </a></li>
+                            <li><a class="p-date" href="#"><span> </span>4-03-2014 </a></li>
+                            <li><a class="p-blog" href="#"><span> </span>Blog,News</a></li>
+                            <div class="clear"> </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="blog-info">
+                    <h3><a href="#">Dans l'Italie Milan</a></h3>
+                    <a href="{{ path('actualite') }}"><img src="front/images/dd.png" title="admin" /></a>
+                </div>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-poast-head">
+                    <div class="blog-art-pic">
+                        <a class="post-pic" href="#"> <img src="front/images/portrait-young-excited-woman-tourist-red-cap-front-eiffel-tower-paris-tourist-near-eiffel-tower-98917800.jpg" title="poast-name" /></a>
+                    </div>
+                    <div class="blog-poast-admin">
+                        <a href="#"><img src="front/images/admin-pic2.jpg" title="admin" /></a>
+                    </div>
+
+                    <div class="blog-poast-info">
+                        <ul>
+                            <li><a class="admin" href="#"><span> </span> Sana </a></li>
+                            <li><a class="p-date" href="#"><span> </span>4-03-2014 </a></li>
+                            <li><a class="p-blog" href="#"><span> </span>Blog,News</a></li>
+                            <div class="clear"> </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="blog-info">
+                    <h3><a href="#">Dans la France Paris</a></h3>
+                    <a href="{{ path('actualite') }}"><img src="front/images/cc.png" title="admin" /></a>
+                </div>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-poast-head">
+                    <div class="blog-art-pic">
+                        <a class="post-pic" href="#"> <img src="front/images/blog-pic2.jpg" title="poast-name" /></a>
+                    </div>
+                    <div class="blog-poast-admin">
+                        <a href="#"><img src="front/images/admin-pic3.jpg" title="admin" /></a>
+                    </div>
+
+                    <div class="blog-poast-info">
+                        <ul>
+                            <li><a class="admin" href="#"><span> </span> Jack </a></li>
+                            <li><a class="p-date" href="#"><span> </span>4-03-2014 </a></li>
+                            <li><a class="p-blog" href="#"><span> </span>Blog,News</a></li>
+                            <div class="clear"> </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="blog-info">
+                    <h3><a href="#">Dans le Chine</a></h3>
+                    <a href="{{ path('actualite') }}"><img src="front/images/cc.png" title="admin" /></a>
+                </div>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-poast-head">
+                    <div class="blog-art-pic">
+                        <a class="post-pic" href="#"> <img src="front/images/ragazza-turistica-cerca-di-attrazioni-nel-centro-finanziario-una-città-asiatica-con-grattacieli-felice-della-172390227.jpg" title="poast-name" /></a>
+                    </div>
+                    <div class="blog-poast-admin">
+                        <a href="#"><img src="front/images/admin-pic4.jpg" title="admin" /></a>
+                    </div>
+
+                    <div class="blog-poast-info">
+                        <ul>
+                            <li><a class="admin" href="#"><span> </span> Elyne </a></li>
+                            <li><a class="p-date" href="#"><span> </span>4-03-2014 </a></li>
+                            <li><a class="p-blog" href="#"><span> </span>Blog,News</a></li>
+                            <div class="clear"> </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="blog-info">
+                    <h3><a href="#">Dans l'Emarates Dubai' </a></h3>
+                    <a href="{{ path('actualite') }}"><img src="front/images/cc.png" title="admin" /></a>
+                </div>
+            </div>
+            <div class="clear"> </div>
+        </div>
+        <div class="criuse-grid-load">
+            <a href="#">Loading More</a>
+        </div>
+    </div>
+</div>
+</div>
+
+<!----start-footer---->
+
+<div class="footer">
+    <div class="wrap">
+        <div class="footer-grids">
+            <div class="footer-grid Newsletter">
+                <h3>Lettre d’information </h3>
+                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore.</p>
+                <form>
+                    <input type="text" placeholder="Souscrit.." /> <input type="submit" value="GO" />
+                </form>
+            </div>
+            <div class="footer-grid Newsletter">
+                <h3>Dernières nouvelles
+                </h3>
+                <div class="news">
+                    <div class="news-pic">
+                        <img src="front/images/f01.jpg" title="news-pic1" />
+                    </div>
+                    <div class="news-info">
+                        <a href="#">Galerie postformat : plusieurs images</a>
+                        <span>December 12, 2012 - 9:11 pm</span>
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+                <div class="news">
+                    <div class="news-pic">
+                        <img src="front/images/f01.jpg" title="news-pic1" />
+                    </div>
+                    <div class="news-info">
+                        <a href="#">Galerie postformat : plusieurs images</a>
+                        <span>December 12, 2012 - 9:11 pm</span>
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+            </div>
+            <div class="footer-grid tags">
+                <h3>Tags</h3>
+                <ul>
+                    <li><a href="#">Connection Agent</a></li>
+                    <li><a href="#">Connection Client</a></li>
+                    <li><a href="#">Vous n'êtes pas un membre?</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Nouveaux Horizons</a></li>
+                    <li><a href="#">Lanscape</a></li>
+                    <li><a href="#">Tags</a></li>
+                    <li><a href="#">Nice</a></li>
+                    <li><a href="#">Some</a></li>
+                    <li><a href="#">Portrait</a></li>
+                    <div class="clear"> </div>
+                </ul>
+            </div>
+            <div class="footer-grid address">
+                <h3>Addresse </h3>
+                <div class="address-info">
+                    <span>ESPRIT </span>
+                    <span>1, 2 rue André Ampère - 2083 - Pôle Technologique - El Ghazala.</span>
+                    <span><i>E-mail:</i><a href="mailto:moin@blindtextgenerator.de">Magic.Makers@gmail.com</a></span>
+                </div>
+                <div class="footer-social-icons">
+                    <ul>
+                        <li><a class="face1 simptip-position-bottom simptip-movable" data-tooltip="facebook" href="#"><span> </span></a></li>
+                        <li><a class="twit1 simptip-position-bottom simptip-movable" data-tooltip="twitter" href="#"><span> </span></a></li>
+                        <li><a class="tub1 simptip-position-bottom simptip-movable" data-tooltip="tumblr" href="#"><span> </span></a></li>
+                        <li><a class="pin1 simptip-position-bottom simptip-movable" data-tooltip="pinterest" href="#"><span> </span></a></li>
+                        <div class="clear"> </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"> </div>
+        </div>
+    </div>
+</div>
+<!----//End-footer---->
+
+<!---start-subfooter---->
+<div class="subfooter">
+    <div class="wrap">
+        <ul>
+         <li><a href="{{ path('app_hotel_index') }}">Hôtels</a></li>
+                <li><a href="{{ path('offre') }}">Offres</a></li>
+                <li><a href="{{ path('reclamation') }}">Réclamations</a></li>
+                <li><a href="{{ path('feedback') }}">Feed-Back</a></li>
+                <li><a href="{{ path('forum') }}">Blog</a></li>
+              <div class="clear"> </div>
+        </ul>
+        <a class="to-top" href="#header"><span> </span> </a>
+    </div>
+</div>
+
+<!---//End-subfooter---->
+<!----//End-wrap---->
+
+</body>
+</html>

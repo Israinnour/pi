@@ -1,0 +1,28 @@
+{% extends 'back.html.twig' %}
+
+{% block body %}        
+        <section id="main-content">
+                <section class="wrapper">
+                        <div class="row">
+                                <div class="col-lg-9 main-chart">
+                                        <!--CUSTOM CHART START -->
+                                        <div class="border-head">
+                                                <h1>L'ajout d'un vol</h1>
+                                              <h3>  {{form_start(f)}}
+                                                {{form_label(f.numero,'Numéro de vol')}}
+                                                {{form_widget(f.numero)}}
+                                                {{form_end(f)}}</h3>
+
+
+                                                <!--custom chart end-->
+                                        <!-- CALENDAR-->
+
+                                        <!-- / calendar -->
+                                </div>
+                                <!-- /col-lg-3 -->
+                        </div>
+                        </div>
+                        <!-- /row -->
+                </section>
+        </section>
+        {% endblock %}  

@@ -1,0 +1,45 @@
+{% extends 'back.html.twig' %}
+
+{% block body %}   
+
+<!---start-destinatiuons---->
+
+<div class="destination-head">
+    <div class="wrap">
+        <h3>La Liste des Vols</h3>
+        <table border ='2'>
+            <tr>
+                <td>Numero de vol-------</td>
+                <td>Date de début-------</td>
+                <td>Date de fin-------</td>
+                <td colspan='3'> Actions </td>
+            </tr>
+            {%for vol in vols%}
+                <tr>
+                    <td>{{vol.id}}</td>
+                    <td>{{vol.dateDebut | date("m/d/y") }}</td>
+                    <td>{{vol.dateFin | date("m/d/y") }}</td>
+
+                    <td><a href="{{path ('show') }}"> Ajouter Réservation</a></td>
+
+
+                </tr>
+
+
+            {%endfor%}
+        </table>
+
+
+        <!---End-destinatiuons---->
+
+        <!----//End-find-place---->
+    </div>
+
+    <!---//End-destinations-pagenation---->
+    <!---loading-more-script--->
+    <!---//loading-more-script--->
+</div>
+
+
+
+{% endblock  %}

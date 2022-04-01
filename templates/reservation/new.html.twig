@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Formulaire de reservation
+{% endblock %}
+
+{% block body %}
+	<h1>Create new Reservation</h1>
+	<a href="{{ path('app_reservation_index') }}">back to list</a>
+	<div class="contact">
+		<div class="contact-info">
+			<div class="wrap">
+				<div class="contact-form">
+					<div class="contact-to">
+						{{ include('reservation/_form.html.twig') }}
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

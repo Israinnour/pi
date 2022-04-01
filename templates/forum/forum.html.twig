@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Forum index{% endblock %}
+
+{% block body %}
+ <div class="blog-grids">
+				<div class="wrap">
+					<div class="blog-grids-head">
+						<h3>Recent Posts</h3>
+					</div>
+
+			{% if forums != null %}		
+        {% for forum in forums %}
+       
+					<div class="blog-grids-box">
+						<div class="blog-grid">
+							<div class="blog-poast-head">
+								<div class="blog-art-pic">
+									<a class="post-pic" href="#"> <img src="{{ asset('picture/' ~ forum.image) }}" title="poast-name" /></a>
+								</div>
+								<div class="blog-poast-admin">
+									<a href="#"><img src="{{ asset('picture/' ~ forum.image) }}" title="admin" /></a>
+								</div>
+								
+								<div class="blog-poast-info">
+									<ul>
+										<li><a class="admin" href="#"><span> </span> Admin </a></li>
+										<li><a class="p-date" href="#"><span> </span>4-03-2014 </a></li>
+										<li><a class="p-blog" href="#"><span> </span>Blog,News</a></li>
+										<div class="clear"> </div>
+									</ul>
+								</div>
+								</div>
+								<div class="blog-info">
+									<h3><a href="{{ path('forum_show', {'id': forum.id}) }}">{{ forum.idcategorie.nom }}</a></h3>
+									<p>{{ forum.content }}</p>
+									<a class="btn" href="{{ path('forum_show', {'id': forum.id}) }}">DeTails</a>
+								</div>
+						</div>
+                    </div>
+        {% endfor %}
+		{% endif %}
+                </div>
+            </div>
+            </div>
+    <a href="{{ path('forum_new') }}">Create new</a>
+{% endblock %}
+{% block footer %}
+{% endblock %}

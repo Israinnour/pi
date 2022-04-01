@@ -1,0 +1,46 @@
+ {% extends 'back.html.twig' %}
+   
+  {% block body %}    
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-9 main-chart">
+                    <!--CUSTOM CHART START -->
+                    <div class="border-head">
+                        <h2>La Liste des Vols</h2>
+                        <table border ='2'>
+                            <tr>
+                                <td><h3>Numero de vol</h3></td>
+                                <td><h3>Date de début</h3></td>
+                                <td><h3>Date de fin</h3></td>
+                                <td colspan='3'><h3> Actions</h3> </td>
+                            </tr>
+                            {%for vol in vols%}
+                                <tr>
+                                    <td><h3>{{vol.id}}</h3></td>
+                                    <td><h3>{{vol.dateDebut | date("m/d/y") }}</h3></td>
+                                    <td><h3>{{vol.dateFin | date("m/d/y") }}</h3></td>
+                                    <td><a href="{{path ('update', {'id' : vol.id }) }}"><button type="button" class="btn btn-round btn-warning"><h3>Modifier vol</h3></button> </a></td>
+                                    <td><a href="{{path ('delete', {'id' : vol.id }) }}"> <button type="button" class="btn btn-round btn-danger"><h3>Supprimer vol</h3></button> </a></td>
+
+
+                                </tr>
+
+
+                            {%endfor%}
+                        </table>
+
+
+
+                        <!--custom chart end-->
+                        <!-- CALENDAR-->
+
+                        <!-- / calendar -->
+                    </div>
+                    <!-- /col-lg-3 -->
+                </div>
+            </div>
+                <!-- /row -->
+        </section>
+    </section>
+    {% endblock %}

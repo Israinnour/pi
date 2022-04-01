@@ -1,0 +1,14 @@
+
+
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+<div class="contact-form">
+    <div class="contact-to">
+        {{ form_widget(form.sujet,{'attr': {'class': 'text' , 'placeholder' : 'Sujet'}}) }}
+    </div>
+    <div class="text2">
+        {{ form_widget(form.description,{'attr': {'class': 'text' , 'placeholder' : 'Subject'}}) }}
+    </div>
+    <span>    <button class="btn">{{ button_label|default('envoyer reclamation') }}</button></span>
+</div>
+
+{{ form_end(form) }}

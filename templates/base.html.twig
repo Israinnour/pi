@@ -1,19 +1,273 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+<head>
+    <title>{% block title %}MagicMakers{% endblock %}</title>
+    
+    <link href="{{ asset('front/css/style.css') }}" rel="stylesheet" type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    </script>
+    <script src="{{ asset('front/js/jquery.min.js') }}"></script>
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    <!---script---->
+    <link rel="stylesheet" href="{{ asset('front/css/jquery.bxslider.css') }}" type="text/css" />
+    <script src="{{ asset('front/js/jquery.bxslider.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.bxslider').bxSlider({
+                auto: true,
+                autoControls: true,
+                minSlides: 4,
+                maxSlides: 4,
+                slideWidth:450,
+                slideMargin: 10
+            });
+        });
+    </script>
+
+    <!---//script---->
+    <!---smoth-scrlling---->
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('a[href^="#"]').on('click',function (e) {
+                e.preventDefault();
+                var target = this.hash,
+                    $target = $(target);
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 1000, 'swing', function () {
+                    window.location.hash = target;
+                });
+            });
+        });
+    </script>
+
+    <!---//smoth-scrlling---->
+    <!----start-top-nav-script---->
+
+    <script type="text/javascript" src="{{ asset('front/js/flexy-menu.js') }}"></script>
+    <script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
+
+    <!----//End-top-nav-script---->
+    <!---webfonts---->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!---webfonts---->
+    <!--start slider -->
+
+    <link rel="stylesheet" href="{{ asset('front/css/fwslider.css') }}" media="all">
+    <script src="{{ asset('front/js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('front/js/css3-mediaqueries.js') }}"></script>
+    <script src="{{ asset('front/js/fwslider.js') }}"></script>
+
+    <!--end slider -->
+    <!---calender-style---->
+
+    <link rel="stylesheet" href="{{ asset('front/css/jquery-ui.css') }}" />
+
+    <!---//calender-style---->
+</head>
+<body>
+
+<div class="top-header" id="header">
+    <div class="wrap">
+        <div class="top-header-left">
+            <ul>
+                <li><a href="#"><span> </span>  {% if app.user %}
+            You are logged in as {{ app.user.username }},
+
+    {% endif %} </a></li>
+                <li><p><span> </span> {% if app.user %} <a href="{{ path('app_logout') }}">déconnexion</a> {% else %}  <a href="{{ path('app_login') }}">login</a>  {% endif %} </p>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <div class="top-header-right">
+            <ul>
+                <li><a class="face" href="#"><span> </span></a></li>
+                <li><a class="twit" href="#"><span> </span></a></li>
+                <li><a class="thum" href="#"><span> </span></a></li>
+                <li><a class="pin" href="#"><span> </span></a></li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <div class="clear"> </div>
+    </div>
+</div>
+
+<!----//End-top-header----->
+<!---start-header---->
+
+<div class="header">
+    <div class="wrap">
+        <!--- start-logo---->
+        <div class="logo">
+            <a href="{{ path('acceuil') }}"><img src="{{ asset('front/images/273652127_6898736670201024_8044367319215187868_n.png/') }}" title="E-Reservation" /></a>
+        </div>
+        <!--- //End-logo---->
+        <!--- start-top-nav---->
+        <div class="top-nav">
+            <ul class="flexy-menu thick orange">
+                <li class="active"><a href="index.html">Acceuil</a></li>
+                <li><a href="{{ path('vol') }}">Vols</a>
+                    <ul>
+                        <li><a href="destinations.html">Dropdown item</a></li>
+                        <li><a href="destinations.html">Dropdown item</a></li>
+                        <li><a href="destinations.html">Dropdown item</a>
+                            <ul>
+                                <li><a href="destinations.html">Dropdown item</a></li>
+                                <li><a href="destinations.html">Dropdown item</a>
+                                    <ul>
+                                        <li><a href="destinations.html">Dropdown item</a></li>
+                                        <li><a href="destinations.html">Dropdown item</a></li>
+                                        <li><a href="destinations.html">Dropdown item</a></li>
+                                        <li><a href="destinations.html">Dropdown item</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Dropdown item</a></li>
+                                <li><a href="#">Dropdown item</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Dropdown item</a></li>
+                        <li><a href="#">Dropdown item</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ path('app_hotel_index') }}">Hôtels</a></li>
+                <li><a href="{{ path('offre') }}">Offres</a></li>
+                <li><a href="{{ path('reclamation_index') }}">Réclamations</a></li>
+                <li><a href="{{ path('feedback') }}">Feed-Back</a></li>
+                <li><a href="{{ path('forum_list') }}">Blog</a></li>
+            </ul>
+            <div class="search-box">
+                <div id="sb-search" class="sb-search">
+                    <form>
+                        <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+                        <input class="sb-search-submit" type="submit" value="">
+                        <span class="sb-icon-search"> </span>
+                    </form>
+                </div>
+            </div>
+            <!----search-scripts---->
+
+            <script src="{{ asset('front/js/modernizr.custom.js') }}"></script>
+            <script src="{{ asset('front/js/classie.js') }}"></script>
+            <script src="{{ asset('front/js/uisearch.js') }}"></script>
+            <script>
+                new UISearch( document.getElementById( 'sb-search' ) );
+            </script>
+
+            <!----//search-scripts---->
+        </div>
+
+        <!--- //End-top-nav---->
+        <div class="clear"> </div>
+    </div>
+
+    <!---//End-header---->
+
+</div>
+
+<!----//End-find-place---->
+<!----start-offers---->
+<div class="offers">
+   {% block body %}
+   {% endblock %}
+    <!-- //End content_slider -->
+</div>
+<!----//End-offers---->
+<
+<!----//End-clients---->
+<!----start-footer---->
+
+<div class="footer">
+    <div class="wrap">
+        <div class="footer-grids">
+            <div class="footer-grid Newsletter">
+                <h3>Lettre d’information </h3>
+                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore.</p>
+                <form>
+                    <input type="text" placeholder="Souscrit.." /> <input type="submit" value="GO" />
+                </form>
+            </div>
+            <div class="footer-grid Newsletter">
+                <h3>Dernières nouvelles
+                </h3>
+                <div class="news">
+                    <div class="news-pic">
+                        <img src="{{ asset('front/images/f01.jpg') }}" title="news-pic1" />
+                    </div>
+                    <div class="news-info">
+                        <a href="#">Galerie postformat : plusieurs images</a>
+                        <span>December 12, 2012 - 9:11 pm</span>
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+                <div class="news">
+                    <div class="news-pic">
+                        <img src="front/images/f01.jpg" title="news-pic1" />
+                    </div>
+                    <div class="news-info">
+                        <a href="#">Galerie postformat : plusieurs images</a>
+                        <span>December 12, 2012 - 9:11 pm</span>
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+            </div>
+            <div class="footer-grid tags">
+                <h3>Tags</h3>
+                <ul>
+                    <li><a href="#">Connection Agent</a></li>
+                    <li><a href="#">Connection Client</a></li>
+                    <li><a href="#">Vous n'êtes pas un membre?</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Nouveaux Horizons</a></li>
+                    <li><a href="#">Lanscape</a></li>
+                    <li><a href="#">Tags</a></li>
+                    <li><a href="#">Nice</a></li>
+                    <li><a href="#">Some</a></li>
+                    <li><a href="#">Portrait</a></li>
+                    <div class="clear"> </div>
+                </ul>
+            </div>
+            <div class="footer-grid address">
+                <h3>Addresse </h3>
+                <div class="address-info">
+                    <span>ESPRIT </span>
+                    <span>1, 2 rue André Ampère - 2083 - Pôle Technologique - El Ghazala.</span>
+                    <span><i>E-mail:</i><a href="mailto:moin@blindtextgenerator.de">Magic.Makers@gmail.com</a></span>
+                </div>
+                <div class="footer-social-icons">
+                    <ul>
+                        <li><a class="face1 simptip-position-bottom simptip-movable" data-tooltip="facebook" href="#"><span> </span></a></li>
+                        <li><a class="twit1 simptip-position-bottom simptip-movable" data-tooltip="twitter" href="#"><span> </span></a></li>
+                        <li><a class="tub1 simptip-position-bottom simptip-movable" data-tooltip="tumblr" href="#"><span> </span></a></li>
+                        <li><a class="pin1 simptip-position-bottom simptip-movable" data-tooltip="pinterest" href="#"><span> </span></a></li>
+                        <div class="clear"> </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"> </div>
+        </div>
+    </div>
+</div>
+<!----//End-footer---->
+
+<!---start-subfooter---->
+<div class="subfooter">
+    <div class="wrap">
+        <ul>
+            <li><a href="{{ path('app_hotel_index') }}">Hôtels</a></li>
+                <li><a href="{{ path('offre') }}">Offres</a></li>
+                <li><a href="{{ path('reclamation_index') }}">Réclamations</a></li>
+                <li><a href="{{ path('feedback') }}">Feed-Back</a></li>
+                <li><a href="{{ path('forum_list') }}">Blog</a></li>
+            <div class="clear"> </div>
+        </ul>
+        <a class="to-top" href="#header"><span> </span> </a>
+    </div>
+</div>
+
+<!---//End-subfooter---->
+<!----//End-wrap---->
+
+</body>
 </html>

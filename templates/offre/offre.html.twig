@@ -1,0 +1,26 @@
+{% extends 'back.html.twig' %}
+
+{% block body %}
+<h2>La Liste des offres</h2>
+<table border ='2'>
+    <tr>
+        <td>Numéro de l'offre</td>
+        <td>Pourcentage de l'offre</td>
+        <td>Catégorie de l'offre</td>
+        <td colspan='3'><h3> Actions</h3> </td>
+    </tr>
+    {% for offre in offres %}
+        <tr>
+            <td>{{offre.id}}</td>
+            <td>{{offre.pourcentage  }}</td>
+            <td>{{offre.categorie }}</td>
+             <td><a href="{{path ('updateof', {'id' : offre.id }) }}"><button type="button" class="btn btn-round btn-warning">Modifier offre</button> </a></td>
+            <td><a href="{{path ('deleteof', {'id' : offre.id }) }}"> <button type="button" class="btn btn-round btn-danger">Supprimer offre</button> </a></td>
+
+
+        </tr>
+
+
+    {% endfor %}
+</table>
+{% endblock %}

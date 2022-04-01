@@ -1,0 +1,588 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title> {% block title %} Voyage Website Template | Home :: w3layouts {% endblock %}</title>
+    <link href="{{ asset('front/css/style.css') }}" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <script src="{{ asset('front/js/jquery.min.js') }}"></script>
+    <!---script---->
+    <link rel="stylesheet" href="{{ asset('front/css/jquery.bxslider.css') }}" type="text/css" />
+    <script src="{{ asset('front/js/jquery.bxslider.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.bxslider').bxSlider({
+                auto: true,
+                autoControls: true,
+                minSlides: 4,
+                maxSlides: 4,
+                slideWidth:450,
+                slideMargin: 10
+            });
+        });
+    </script>
+    <!---//script---->
+    <!---smoth-scrlling---->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('a[href^="#"]').on('click',function (e) {
+                e.preventDefault();
+                var target = this.hash,
+                    $target = $(target);
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 1000, 'swing', function () {
+                    window.location.hash = target;
+                });
+            });
+        });
+    </script>
+    <!---//smoth-scrlling---->
+    <!----start-top-nav-script---->
+    <script type="text/javascript" src="{{ asset('front/js/flexy-menu.js') }}"></script>
+    <script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
+    <!----//End-top-nav-script---->
+    <!---webfonts---->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!---webfonts---->
+    <!--start slider -->
+    <link rel="stylesheet" href="{{ asset('front/css/fwslider.css') }}" media="all">
+    <script src="{{ asset('front/js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('front/js/css3-mediaqueries.js') }}"></script>
+    <script src="{{ asset('front/js/fwslider.js') }}"></script>
+    <!--end slider -->
+    <!---calender-style---->
+    <link rel="stylesheet" href="{{ asset('front/css/jquery-ui.css') }}" />
+    <!---//calender-style---->
+</head>
+<body>
+<!----start-wrap---->
+<!----start-top-header----->
+<div class="top-header" id="header">
+    <div class="wrap">
+        <div class="top-header-left">
+            <ul>
+                <li><a href="#"><span> </span> Agent Login</a></li>
+                <li><a href="#"><span> </span> Agent Login</a></li>
+                <li><p><span> </span>Not a Member ? </p>&nbsp;<a class="reg" href="#"> Register</a></li>
+                <li><p class="contact-info">Call Us Now :815-123-4567</p></li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <div class="top-header-right">
+            <ul>
+                <li><a class="face" href="#"><span> </span></a></li>
+                <li><a class="twit" href="#"><span> </span></a></li>
+                <li><a class="thum" href="#"><span> </span></a></li>
+                <li><a class="pin" href="#"><span> </span></a></li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <div class="clear"> </div>
+    </div>
+</div>
+<!----//End-top-header----->
+<!---start-header---->
+<div class="header">
+    <div class="wrap">
+        <!--- start-logo---->
+        <div class="logo">
+            <a href="index.html"><img src="{{ asset('front/images/logo.png') }}" title="voyage" /></a>
+        </div>
+        <!--- //End-logo---->
+        <!--- start-top-nav---->
+        <div class="top-nav">
+            <ul class="flexy-menu thick orange">
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="{{ path('app_hotel_index') }}">Hotel</a></li>
+                <li><a href="{{ path('app_reservation_index_front') }}">Resevation</a></li>
+                <li><a href="destinations.html">Specials</a></li>
+                <li><a href="destinations.html">Holidays</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <div class="search-box">
+                <div id="sb-search" class="sb-search">
+                    <form>
+                        <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+                        <input class="sb-search-submit" type="submit" value="">
+                        <span class="sb-icon-search"> </span>
+                    </form>
+                </div>
+            </div>
+            <!----search-scripts---->
+            <script src="web/js/modernizr.custom.js"></script>
+            <script src="web/js/classie.js"></script>
+            <script src="web/js/uisearch.js"></script>
+            <script>
+                new UISearch( document.getElementById( 'sb-search' ) );
+            </script>
+            <!----//search-scripts---->
+        </div>
+        <!--- //End-top-nav---->
+        <div class="clear"> </div>
+    </div>
+    <!---//End-header---->
+</div>
+<!---start-destinatiuons---->
+<div class="destinations">
+    <div class="destination-head">
+        <div class="wrap">
+            <h3>Destinations</h3>
+        </div>
+        <!---End-destinatiuons---->
+        <div class="find-place dfind-place">
+            <div class="wrap">
+                <div class="p-h">
+                    <span>FIND YOUR</span>
+                    <label>HOLYDAYS</label>
+                </div>
+                <!---strat-date-piker---->
+                <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+                <script>
+                    $(function() {
+                        $( "#datepicker" ).datepicker();
+                    });
+                </script>
+                <!---/End-date-piker---->
+                <div class="p-ww">
+                    <form>
+                        <span> Where</span>
+                        <input class="dest" type="text" value="Distination" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Distination';}">
+                        <span> When</span>
+                        <input class="date" id="datepicker" type="text" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
+                        <input type="submit" value="Search" />
+                    </form>
+                </div>
+                <div class="clear"> </div>
+            </div>
+        </div>
+        <!----//End-find-place---->
+    </div>
+    {% block body %}
+        <div class="offers">
+            <div class="offers-head">
+                <h3>Special Offers</h3>
+                <p>Best 2014 packages where people love to stay!</p>
+            </div>
+            <!-- start content_slider -->
+            <!-- FlexSlider -->
+            <!-- jQuery -->
+            <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+            <!-- FlexSlider -->
+
+            <script defer src="{{ asset('front/js/jquery.flexslider.js') }}"></script>
+            <script type="text/javascript">
+                $(function(){
+                    SyntaxHighlighter.all();
+                });
+                $(window).load(function(){
+                    $('.flexslider').flexslider({
+                        animation: "slide",
+                        animationLoop: true,
+                        itemWidth:250,
+                        itemMargin: 5,
+                        start: function(slider){
+                            $('body').removeClass('loading');
+                        }
+                    });
+                });
+            </script>
+            <!-- Place somewhere in the <body> of your page -->
+            <section class="slider">
+
+                <div class="flexslider carousel">
+                    <ul class="slides">
+                        <li onclick="location.href='#';">
+                            <img src="images/p1.jpg" />
+                            <!----place-caption-info---->
+                            <div class="caption-info">
+                                <div class="caption-info-head">
+                                    <div class="caption-info-head-left">
+                                        <h4><a href="#">Hong Kong & Macau</a></h4>
+                                        <span>Bonus Extras!</span>
+                                    </div>
+                                    <div class="caption-info-head-right">
+                                        <span> </span>
+                                    </div>
+                                    <div class="clear"> </div>
+                                </div>
+                            </div>
+                            <!----//place-caption-info---->
+                        </li>
+                        <li onclick="location.href='#';">
+                            <img src="images/p2.jpg" />
+                            <!----place-caption-info---->
+                            <div class="caption-info">
+                                <div class="caption-info-head">
+                                    <div class="caption-info-head-left">
+                                        <h4><a href="#">Hong Kong & Macau</a></h4>
+                                        <span>Bonus Extras!</span>
+                                    </div>
+                                    <div class="caption-info-head-right">
+                                        <span> </span>
+                                    </div>
+                                    <div class="clear"> </div>
+                                </div>
+                            </div>
+                            <!----//place-caption-info---->
+                        </li>
+                        <li onclick="location.href='#';">
+                            <img src="images/p3.jpg" />
+                            <!----place-caption-info---->
+                            <div class="caption-info">
+                                <div class="caption-info-head">
+                                    <div class="caption-info-head-left">
+                                        <h4><a href="#">Hong Kong & Macau</a></h4>
+                                        <span>Bonus Extras!</span>
+                                    </div>
+                                    <div class="caption-info-head-right">
+                                        <span> </span>
+                                    </div>
+                                    <div class="clear"> </div>
+                                </div>
+                            </div>
+                            <!----//place-caption-info---->
+                        </li>
+                        <li onclick="location.href='#';">
+                            <img src="images/p4.jpg" />
+                            <!----place-caption-info---->
+                            <div class="caption-info">
+                                <div class="caption-info-head">
+                                    <div class="caption-info-head-left">
+                                        <h4><a href="#">Hong Kong & Macau</a></h4>
+                                        <span>Bonus Extras!</span>
+                                    </div>
+                                    <div class="caption-info-head-right">
+                                        <span> </span>
+                                    </div>
+                                    <div class="clear"> </div>
+                                </div>
+                            </div>
+                            <!----//place-caption-info---->
+                        </li>
+                        <li onclick="location.href='#';">
+                            <img src="images/p5.jpg" />
+                            <!----place-caption-info---->
+                            <div class="caption-info">
+                                <div class="caption-info-head">
+                                    <div class="caption-info-head-left">
+                                        <h4><a href="#">Hong Kong & Macau</a></h4>
+                                        <span>Bonus Extras!</span>
+                                    </div>
+                                    <div class="caption-info-head-right">
+                                        <span> </span>
+                                    </div>
+                                    <div class="clear"> </div>
+                                </div>
+                            </div>
+                            <!----//place-caption-info---->
+                        </li>
+                        <li onclick="location.href='#';">
+                            <img src="images/p6.jpg" />
+                            <!----place-caption-info---->
+                            <div class="caption-info">
+                                <div class="caption-info-head">
+                                    <div class="caption-info-head-left">
+                                        <h4><a href="#">Hong Kong & Macau</a></h4>
+                                        <span>Bonus Extras!</span>
+                                    </div>
+                                    <div class="caption-info-head-right">
+                                        <span> </span>
+                                    </div>
+                                    <div class="clear"> </div>
+                                </div>
+                            </div>
+                            <!----//place-caption-info---->
+                        </li>
+                        <li onclick="location.href='#';">
+                            <img src="images/p1.jpg" />
+                            <!----place-caption-info---->
+                            <div class="caption-info">
+                                <div class="caption-info-head">
+                                    <div class="caption-info-head-left">
+                                        <h4><a href="#">Hong Kong & Macau</a></h4>
+                                        <span>Bonus Extras!</span>
+                                    </div>
+                                    <div class="caption-info-head-right">
+                                        <span> </span>
+                                    </div>
+                                    <div class="clear"> </div>
+                                </div>
+                            </div>
+                            <!----//place-caption-info---->
+                        </li>
+                        <li onclick="location.href='#';">
+                            <img src="images/p2.jpg" />
+                            <!----place-caption-info---->
+                            <div class="caption-info">
+                                <div class="caption-info-head">
+                                    <div class="caption-info-head-left">
+                                        <h4><a href="#">Hong Kong & Macau</a></h4>
+                                        <span>Bonus Extras!</span>
+                                    </div>
+                                    <div class="caption-info-head-right">
+                                        <span> </span>
+                                    </div>
+                                    <div class="clear"> </div>
+                                </div>
+                            </div>
+                            <!----//place-caption-info---->
+                        </li>
+                        <li onclick="location.href='#';">
+                            <img src="images/p3.jpg" />
+                            <!----place-caption-info---->
+                            <div class="caption-info">
+                                <div class="caption-info-head">
+                                    <div class="caption-info-head-left">
+                                        <h4><a href="#">Hong Kong & Macau</a></h4>
+                                        <span>Bonus Extras!</span>
+                                    </div>
+                                    <div class="caption-info-head-right">
+                                        <span> </span>
+                                    </div>
+                                    <div class="clear"> </div>
+                                </div>
+                            </div>
+                            <!----//place-caption-info---->
+                        </li>
+                        <li onclick="location.href='#';">
+                            <img src="images/p4.jpg" />
+                            <!----place-caption-info---->
+                            <div class="caption-info">
+                                <div class="caption-info-head">
+                                    <div class="caption-info-head-left">
+                                        <h4><a href="#">Hong Kong & Macau</a></h4>
+                                        <span>Bonus Extras!</span>
+                                    </div>
+                                    <div class="caption-info-head-right">
+                                        <span> </span>
+                                    </div>
+                                    <div class="clear"> </div>
+                                </div>
+                            </div>
+                            <!----//place-caption-info---->
+                        </li>
+                        <li onclick="location.href='#';">
+                            <img src="images/p5.jpg" />
+                            <!----place-caption-info---->
+                            <div class="caption-info">
+                                <div class="caption-info-head">
+                                    <div class="caption-info-head-left">
+                                        <h4><a href="#">Hong Kong & Macau</a></h4>
+                                        <span>Bonus Extras!</span>
+                                    </div>
+                                    <div class="caption-info-head-right">
+                                        <span> </span>
+                                    </div>
+                                    <div class="clear"> </div>
+                                </div>
+                            </div>
+                            <!----//place-caption-info---->
+                        </li>
+                        <li onclick="location.href='#';">
+                            <img src="images/p6.jpg" />
+                            <!----place-caption-info---->
+                            <div class="caption-info">
+                                <div class="caption-info-head">
+                                    <div class="caption-info-head-left">
+                                        <h4><a href="#">Hong Kong & Macau</a></h4>
+                                        <span>Bonus Extras!</span>
+                                    </div>
+                                    <div class="caption-info-head-right">
+                                        <span> </span>
+                                    </div>
+                                    <div class="clear"> </div>
+                                </div>
+                            </div>
+                            <!----//place-caption-info---->
+                        </li>
+                    </ul>
+                </div>
+
+            </section>
+            <!-- //End content_slider -->
+        </div>
+
+        <!----//End-offers---->
+        <!---start-holiday-types---->
+        <div class="holiday-types">
+            <div class="wrap">
+                <div class="holiday-type-head">
+                    <h3>Holidays Type</h3>
+                    <span>get explore your dream to travel the world!</span>
+                </div>
+                <div class="holiday-type-grids">
+                    <div class="holiday-type-grid" onclick="location.href='#';">
+                        <span class="icon1"> </span>
+                        <a href="#">Cruise</a>
+                    </div>
+                    <div class="holiday-type-grid" onclick="location.href='#';">
+                        <span class="icon2"> </span>
+                        <a href="#">City Breaks</a>
+                    </div>
+                    <div class="holiday-type-grid" onclick="location.href='#';">
+                        <span class="icon3"> </span>
+                        <a href="#">Honeymoon</a>
+                    </div>
+                    <div class="holiday-type-grid" onclick="location.href='#';">
+                        <span class="icon4"> </span>
+                        <a href="#">Adventure</a>
+                    </div>
+                    <div class="holiday-type-grid" onclick="location.href='#';">
+                        <span class="icon5"> </span>
+                        <a href="#">Safari</a>
+                    </div>
+                    <div class="holiday-type-grid" onclick="location.href='#';">
+                        <span class="icon6"> </span>
+                        <a href="#">Beach</a>
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+            </div>
+        </div>
+        <!---//End-holiday-types---->
+        <!----//End-images-slider---->
+        <!----start-clients---->
+        <div class="clients">
+            <div class="client-head">
+                <h3>Happy Clients</h3>
+                <span>what customer say about us and why love our services!</span>
+            </div>
+            <div class="client-grids">
+                <ul class="bxslider">
+                    <li>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typeset industry. Lorem Ipsum has been the industry's standard dummy text ever hen an with new version look.</p>
+                        <a href="#">Client Name</a>
+                        <span>United States</span>
+                        <label> </label>
+                    </li>
+                    <li>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typeset industry. Lorem Ipsum has been the industry's standard dummy text ever hen an with new version look.</p>
+                        <a href="#">Client Name</a>
+                        <span>United States</span>
+                        <label> </label>
+                    </li>
+                    <li>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typeset industry. Lorem Ipsum has been the industry's standard dummy text ever hen an with new version look.</p>
+                        <a href="#">Client Name</a>
+                        <span>United States</span>
+                        <label> </label>
+                    </li>
+                    <li>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typeset industry. Lorem Ipsum has been the industry's standard dummy text ever hen an with new version look.</p>
+                        <a href="#">Client Name</a>
+                        <span>United States</span>
+                        <label> </label>
+                    </li>
+                    <li>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typeset industry. Lorem Ipsum has been the industry's standard dummy text ever hen an with new version look.</p>
+                        <a href="#">Client Name</a>
+                        <span>United States</span>
+                        <label> </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    {% endblock %}
+    <!----//End-clients---->
+    <!----start-footer---->
+    <div class="footer">
+        <div class="wrap">
+            <div class="footer-grids">
+                <div class="footer-grid Newsletter">
+                    <h3>News letter </h3>
+                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore.</p>
+                    <form>
+                        <input type="text" placeholder="Subscribes.." /> <input type="submit" value="GO" />
+                    </form>
+                </div>
+                <div class="footer-grid Newsletter">
+                    <h3>Latest News </h3>
+                    <div class="news">
+                        <div class="news-pic">
+                            <img src="images/f01.jpg" title="news-pic1" />
+                        </div>
+                        <div class="news-info">
+                            <a href="#">Postformat Gallery: Multiple images</a>
+                            <span>December 12, 2012 - 9:11 pm</span>
+                        </div>
+                        <div class="clear"> </div>
+                    </div>
+                    <div class="news">
+                        <div class="news-pic">
+                            <img src="images/f01.jpg" title="news-pic1" />
+                        </div>
+                        <div class="news-info">
+                            <a href="#">Postformat Gallery: Multiple images</a>
+                            <span>December 12, 2012 - 9:11 pm</span>
+                        </div>
+                        <div class="clear"> </div>
+                    </div>
+                </div>
+                <div class="footer-grid tags">
+                    <h3>Tags</h3>
+                    <ul>
+                        <li><a href="#">Agent login</a></li>
+                        <li><a href="#">Customer Login</a></li>
+                        <li><a href="#">Not a Member?</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">New Horizons</a></li>
+                        <li><a href="#">Lanscape</a></li>
+                        <li><a href="#">Tags</a></li>
+                        <li><a href="#">Nice</a></li>
+                        <li><a href="#">Some</a></li>
+                        <li><a href="#">Portrait</a></li>
+                        <div class="clear"> </div>
+                    </ul>
+                </div>
+                <div class="footer-grid address">
+                    <h3>Address </h3>
+                    <div class="address-info">
+                        <span>DieSachbearbeiter Schonhauser </span>
+                        <span>Allee 167c,10435 Berlin Germany</span>
+                        <span><i>E-mail:</i><a href="mailto:moin@blindtextgenerator.de">moin@blindtextgenerator.de</a></span>
+                    </div>
+                    <div class="footer-social-icons">
+                        <ul>
+                            <li><a class="face1 simptip-position-bottom simptip-movable" data-tooltip="facebook" href="#"><span> </span></a></li>
+                            <li><a class="twit1 simptip-position-bottom simptip-movable" data-tooltip="twitter" href="#"><span> </span></a></li>
+                            <li><a class="tub1 simptip-position-bottom simptip-movable" data-tooltip="tumblr" href="#"><span> </span></a></li>
+                            <li><a class="pin1 simptip-position-bottom simptip-movable" data-tooltip="pinterest" href="#"><span> </span></a></li>
+                            <div class="clear"> </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clear"> </div>
+            </div>
+        </div>
+    </div>
+    <!----//End-footer---->
+    <!---start-subfooter---->
+    <div class="subfooter">
+        <div class="wrap">
+            <ul>
+                <li><a href="index.html">Home</a><span>::</span></li>
+                <li><a href="destinations.html">Destinations</a><span>::</span></li>
+                <li><a href="criuses.html">Criuses</a><span>::</span></li>
+                <li><a href="destinations.html">Specils</a><span>::</span></li>
+                <li><a href="destinations.html">Holidays</a><span>::</span></li>
+                <li><a href="blog.html">Blog</a><span>::</span></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <div class="clear"> </div>
+            </ul>
+            <p class="copy-right">Template by <a href="http://w3layouts.com/">W3layouts</a></p>
+            <a class="to-top" href="#header"><span> </span> </a>
+        </div>
+    </div>
+    <!---//End-subfooter---->
+    <!----//End-wrap---->
+</body>
+</html>
+

@@ -1,0 +1,24 @@
+{% extends 'back.html.twig' %}
+{% block body %}
+                        <h2>Liste des réservations Vol</h2>
+
+                        <table border ='2'>
+                            <tr>
+                                <td><h3>Numero de reservation</h3></td>
+                                <td><h3>Date de réservation</h3></td>
+
+                            </tr>
+                            {%for reservation in reservations%}
+                                <tr>
+                                    <td><h3>{{reservation.numero}}</h3></td>
+                                    <td><h3>{{reservation.date| date("m/d/y") }}</h3></td>
+
+
+
+                                </tr>
+
+
+                            {%endfor%}
+                        </table>
+
+{% endblock body %}

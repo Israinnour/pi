@@ -1,0 +1,32 @@
+{% extends 'back.html.twig' %}
+
+{% block body %}
+
+<h1>liste des utilisateurs</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>email</th>
+                <th>role</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for l in liste %}
+            <tr>
+                <td>{{ l.id }}</td>
+              
+                <td>{{ l.email }}</td>
+                <td>{% for r in l.roles %} {{r}} {% endfor %}</td>
+             
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

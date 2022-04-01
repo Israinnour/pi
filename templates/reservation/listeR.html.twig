@@ -1,20 +1,25 @@
-<table border ='2'>
-    <tr>
-        <td>Numero de reservation</td>
-        <td>Date de réservation</td>
-        <td colspan='3'> Actions </td>
-    </tr>
-    {%for reservation in reservations%}
-        <tr>
-            <td>{{reservation.numero}}</td>
-            <td>{{reservation.date| date("m/d/y") }}</td>
-            <td><a href="{{path ('add') }}"> add réservation</a></td>
-            <td><a href="{{path ('update', {'id' : reservation.id }) }}"> update réservation</a></td>
-            <td><a href="{{path ('delete', {'id' : reservation.id }) }}"> delete réservation</a></td>
+{% extends 'back.html.twig' %}
+{% block body %}
+        <h3>Réservation Vol</h3>
+
+        <table border ='2'>
+            <tr>
+                <td>Numero de reservation-------</td>
+                <td>Date de réservation-------</td>
+                <td colspan='3'> Actions </td>
+            </tr>
+            {%for reservation in reservations%}
+                <tr>
+                    <td>{{reservation.numero}}</td>
+                    <td>{{reservation.date| date("m/d/y") }}</td>
+                    <td><a href="{{path ('addR') }}"> Ajouter réservation---</a></td>
+                    <td><a href="{{path ('updateR', {'id' : reservation.id }) }}"> Modifier réservation---</a></td>
+                    <td><a href="{{path ('deleteR', {'id' : reservation.id }) }}">  Annuler Réservation</a></td>
 
 
-        </tr>
+                </tr>
 
 
-    {%endfor%}
-</table>
+            {%endfor%}
+        </table>
+{% endblock body %}

@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hotel index{% endblock %}
+
+{% block body %}
+<div class="destination-places">
+    <div class="wrap">
+        <div class="destination-places-head">
+            <h3>hotel</h3>
+        </div>
+        <div class="d-flex align-items-center"><input class="form-control" type="search" id="search"
+                                                      placeholder="Search by Nom">
+            <div class="destination-places-grids">
+                <div class="client-grids" id="tableac">
+                        {% for hotel in hotels %}
+
+                            <div class="destination-places-grid" onclick="location.href='#';">
+                                <div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
+                                    <img src="{{ asset('uploads/'~hotel.image) }}" WIDTH=400 HEIGHT=200 title="place-name"/>
+                                    <a href="#" class="popup"> </a>
+                                    <a href="#" class="popup2"> </a>
+                                </div>
+                                <div class="dest-place-opt">
+                                    <ul class="dest-place-opt-fea">
+                                        <li><a class="hot" href="#"><span> </span> {{ hotel.nom }}</a></li>
+                                        <br>
+                                        <li><a class="plain" href="#"><span> </span> date
+                                                debut {{ hotel.localisataion }}    </a></li>
+                                    </ul>
+                                    <ul class="dest-place-opt-cast">
+                                        <li><a class="d-place"
+                                               href="{{ path('app_hotel_show', {'id': hotel.id}) }}">{{ hotel.nom }}</a>
+                                        </li>
+                                        <li><a class="d-price" href="#">Starting Form {{ hotel.prix }}$</a></li>
+                                        <br>
+                                        <br>
+                                        <li><a class="d-price" href="#">Like ={{ hotel.likes|length }}</a></li>
+                                        <div class="clear">
+
+
+                                        </div>
+
+                                    </ul>
+                                </div>
+                                <a href="{{path('likehotel', {'id': hotel.id}) }}" class="">  <i class="fa fa-thumbs-up"> Like</i> </a>
+                                <a href="{{path('likehotel', {'id': hotel.id}) }}" class="">  <i class="fa fa-thumbs-down"> dislike</i> </a>
+                            </div>
+
+                        {% endfor %}
+                   
+
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!---start-destinations-pagenation---->
+    <div class="destination-pagenate">
+        <div class="wrap">
+            <ul>
+                <li><a class="d-next" href="#">LOAding More</a></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+    </div>
+    <!---//End-destinations-pagenation---->
+    <!---loading-more-script--->
+    <!---//loading-more-script--->
+    {% endblock %}

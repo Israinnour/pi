@@ -1,0 +1,12 @@
+                        {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+                         {{ form_widget(form.nom) }}
+                          {% if not form.nom.vars.valid %}
+                        <div class="alert alert-danger">
+                        {{ form_errors(form.nom) }}
+                        </div>
+                        {% endif %}
+                        
+                    
+                         {{ form_widget(form) }}
+                         <button class="btn">{{ button_label|default('Create') }}</button>
+                        {{ form_end(form) }}

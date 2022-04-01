@@ -1,0 +1,61 @@
+{% extends 'baseF.html.twig' %}
+
+{% block title %}Hotel{% endblock %}
+
+{% block body %}
+    <div class="criuse-main">
+        <div class="wrap">
+            <div class="criuse-head1">
+                <h3>CHEAPEST Criuse</h3>
+            </div>
+            <div class="criuse-grids">
+                <div class="criuse-grid">
+                    <div class="criuse-grid-head">
+                        <div class="criuse-img">
+                            <div class="criuse-pic">
+                                <img src="{{ asset('uploads/'~hotel.image) }}" title="criuse-name"/>
+                            </div>
+                            <div class="criuse-pic-info">
+                                <div class="criuse-pic-info-top">
+                                    <div class="criuse-pic-info-top-weather">
+                                        <p>33<label>o</label><i>c</i><span> </span></p>
+                                    </div>
+                                    <div class="criuse-pic-info-top-place-name">
+                                        <h2><label>{{ hotel.nom }}</label><span>{{ hotel.nom }}</span>
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="criuse-pic-info-price">
+                                    <p><span>Starting Form</span> <h4>{{ hotel.prix }} $</h4></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="criuse-info">
+                            <div class="criuse-info-left">
+                                <ul>
+                                    <li><a class="c-fast" href="#"><span> </span> Complimentry beark fast</a></li>
+                                    <li><a class="c-car" href="#"><span> </span> Car for All transfers</a></li>
+                                    <div class="clear"></div>
+                                </ul>
+                            </div>
+                            <div class="criuse-info-right">
+                                <ul>
+                                    <li><a class="c-face" href="#"><span> </span> </a></li>
+                                    <li><a class="c-twit" href="#"><span> </span> </a></li>
+                                    <li><a class="c-tub" href="#"><span> </span> </a></li>
+                                    <li><a class="c-pin" href="#"><span> </span> </a></li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="criuse-grid-info">
+                        <h1><a href="#">{{ hotel.nom }}</a></h1>
+                            <p>{{ hotel.description }}</p>
+                        <a class="btn" href="{{ path('app_reservation_front_new', {'id': hotel.id}) }}">réserve</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
