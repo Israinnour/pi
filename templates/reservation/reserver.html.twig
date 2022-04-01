@@ -1,0 +1,48 @@
+<div class="w3_agile_team_grid_right">
+    <h3>Inscrivez <span>Vous</span></h3>
+    <p>Vous devez inscrire en tant qu'<b>etudiant</b> pour accéder aux formations disponibles.</p>
+</div>
+<div class="clearfix"> </div>
+</div>
+<br>
+<div class="col-md-2"></div>
+<div class="col-md-8">
+    <form action="service/valider-inscription.php" method="post" id="inscription">
+        <div class="form-group">
+            <input class="form-control" name="nom" placeholder="Nom" type="text" required="">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="prenom" placeholder="Prenom" type="text" required="">
+        </div>
+        <div class="form-group">
+            <input class="form-control" id="telephone" name="telephone" placeholder="Telephone" type="tel" required="">
+        </div>
+        <div class="form-group">
+            <select class="form-control" required name="niveau">
+                <option> < Bac </option>
+                ;					  <option>Bac</option>
+                <option>Bac + 1</option>
+                <option>Bac + 2</option>
+                <option>Bac + 3</option>
+                <option>Bac + 4</option>
+                <option>Bac + 5</option>
+                <option> > Bac + 5 </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required="">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="pass" placeholder="Mot de passe" type="password" required="">
+            <input class="form-control" name="type" value="Etudiant" type="hidden">
+        </div>
+        <div id="resultat_ajax"></div>
+        <input type="submit" class="btn btn-primary btn-lg btn-block" value="Inscrire">
+        <input type="reset" class="btn btn-dark btn-lg btn-block" value="Annuler">
+    </form>
+</div>
+<div class="col-md-2"></div>
+<div class="clearfix"> </div>
+</div>
+</div>
+</div>
